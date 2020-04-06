@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="books">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP 读书笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;29&#x2F;book&#x2F;%E7%AC%94%E8%AE%B0&#x2F;%E7%AC%94%E8%AE%B0-csapp&#x2F;index.html">
+<meta property="og:site_name" content="大雄的小本本 The Book Of Xin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-30T03:28:12.342Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/29/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-csapp/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSAPP 读书笔记 | 大雄的小本本 The Book Of Xin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大雄的小本本 The Book Of Xin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">where change happens</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-inventory">
+
+    <a href="/inventory/" rel="section"><i class="fa fa-fw fa-folder"></i>买手店</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>Kindle</a>
+
+  </li>
+        <li class="menu-item menu-item-videos">
+
+    <a href="/videos/" rel="section"><i class="fa fa-fw fa-youtube"></i>Final Cut</a>
+
+  </li>
+        <li class="menu-item menu-item-summaries">
+
+    <a href="/summary/" rel="section"><i class="fa fa-fw fa-file-word-o"></i>One page</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/BeckDiao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-csapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Xin Diao">
+      <meta itemprop="description" content="personal site, Xin Diao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大雄的小本本 The Book Of Xin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSAPP 读书笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 16:13:33 / 修改时间：20:28:12" itemprop="dateCreated datePublished" datetime="2020-03-29T16:13:33-07:00">2020-03-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>CSAPP 读书笔记。 still in progress.</p>
+<a id="more"></a>
+
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><hr>
+<h3 id="主线："><a href="#主线：" class="headerlink" title="主线："></a>主线：</h3><blockquote>
+<p>本书的目的是帮助你了解当你在系统上执行hello 程序时，系统发生了什么以及为什么会这样。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello.c -(translate)-&gt; a sequence of low-level machine-lanague instructions -(package)-&gt; executable object file -(stored)-&gt; binary disk file</span><br></pre></td></tr></table></figure>
+<p>=&gt; <code>gcc -o hello hello.c</code></p>
+<hr>
+<h3 id="名词："><a href="#名词：" class="headerlink" title="名词："></a>名词：</h3><ul>
+<li>cpp -&gt; c preprocessor</li>
+<li>GCC -&gt; The GNU Compiler Collection (GCC) is a compiler system produced by the GNU Project supporting various programming languages.</li>
+<li>shell -&gt; command-line interpreter</li>
+<li>总线 = buses</li>
+<li>kernel -&gt; os代码常驻main memory的部分。</li>
+</ul>
+<hr>
+<h3 id="细节："><a href="#细节：" class="headerlink" title="细节："></a>细节：</h3><h4 id="1-1-information-bits-context"><a href="#1-1-information-bits-context" class="headerlink" title="1.1 information = bits + context"></a>1.1 information = bits + context</h4><ul>
+<li>bit 0,1 =&gt; 8 bit = 1 byte =&gt; byte represents text character</li>
+<li>所有东西都是bit，但是通过context，我们可以知道/区分 这串bit代表什么</li>
+</ul>
+<h4 id="1-2-程序被其他程序翻译成不同格式"><a href="#1-2-程序被其他程序翻译成不同格式" class="headerlink" title="1.2 程序被其他程序翻译成不同格式"></a>1.2 程序被其他程序翻译成不同格式</h4><p>(以下有照片)<br>hello.c (source code, text)<br>cpp -&gt; hello.i (replaced #, text)<br>cc1 -&gt; hello.s (assembly, text)<br>as -&gt; hello.o (relocatable object program, binary)<br>ld -&gt; hello(execiutable object program, binary)<br>posix -&gt; (用来消除各unix版本中的差异)一种涵盖了很多方面的unix系统的标准，比如unix系统调用的c语言接口，shell, tools, threads,网络编程等</p>
+<h4 id="1-3-It-pays-to-understand-how-compilation-system-work"><a href="#1-3-It-pays-to-understand-how-compilation-system-work" class="headerlink" title="1.3 It pays to understand how compilation system work"></a>1.3 It pays to understand how compilation system work</h4><ul>
+<li>优化程序性能</li>
+<li>理解lind时出现的错误。 如 can’t resolve import.</li>
+<li>避免安全漏洞。如 缓冲区溢出错误(buffer overflow)。</li>
+</ul>
+<h4 id="1-4-系统硬件组成"><a href="#1-4-系统硬件组成" class="headerlink" title="1.4 系统硬件组成"></a>1.4 系统硬件组成</h4><ul>
+<li>Buses: carry information<br>4 bytes(32 bits)/8 byte(64 bits) =&gt; fixed chunk size -&gt; word size =&gt; fundamental system parameter</li>
+<li>I/O devices</li>
+<li>Main Memory<br>temporary。由一系列DRAM组成。每个memory： index从0开始的线性字节数组</li>
+<li>processor<br>CPU: engine that interpres or executes instructions(stored in memory).<br>cpu核心是word-size storage device(or register) -&gt; PC(program counter) -&gt; point to an instruction</li>
+</ul>
+<h4 id="1-7-OS-manages-hardware"><a href="#1-7-OS-manages-hardware" class="headerlink" title="1.7 OS manages hardware"></a>1.7 OS manages hardware</h4><blockquote>
+<p>可以把os看成是application 和hardware之间的一层software</p>
+</blockquote>
+<p>os基本功能&lt;- 通过process, vitual memory, files这些抽象概念来实现</p>
+<ol>
+<li>防止hardware被失控的app滥用</li>
+<li>向app提供简单一致的机制来控制复杂而又通常大不相同的low-level硬件设备</li>
+</ol>
+<p>file: i/o的抽象表示<br>virtual memory: main memory &amp; disk 的抽象<br>process: 对processor, main main, i/o的抽象</p>
+<h5 id="1-7-1-process"><a href="#1-7-1-process" class="headerlink" title="1.7.1 process"></a>1.7.1 process</h5><ul>
+<li>并发是通过processor在process间切换来实现的。os 实现这种交错执行的机制叫做context switching。</li>
+<li>os 保持track process运行的所需的所有状态信息，就是context, e.g. pc, register file当前值, main memory内容等。</li>
+<li>一个process到另一个的转换是由kernel管理的</li>
+<li>kernal不是一个独立的process，而是系统管理所有process所用的<strong>代码和数据结构</strong>的集合。</li>
+</ul>
+<h5 id="1-7-2-threads"><a href="#1-7-2-threads" class="headerlink" title="1.7.2 threads"></a>1.7.2 threads</h5><p>一个process可以由多个threads(执行单位)组成，每个thread都运行在process都上下文中，并共享同样的代码和global data。</p>
+<h5 id="1-7-3-virtual-memory"><a href="#1-7-3-virtual-memory" class="headerlink" title="1.7.3 virtual memory"></a>1.7.3 virtual memory</h5><ul>
+<li>抽象概念 -&gt; 好像每个process都在独占main memory (i.e. 每个process看到的memory都是一致的 -&gt; virtual address space) &lt;- 基本思想是把一个process的virtual memory的内容 存放在disk上，然后用main memory作为disk的cache。</li>
+<li>每个process看到的virtual address space 由大量准确定义的区构成，每个区有自己的功能：<ul>
+<li>code, data. 固定大小。</li>
+<li>heap. 动态大小。</li>
+<li>shared libraries.</li>
+<li>stack. compiler 用stack实现函数调用。动态大小。</li>
+<li>kernel virtual memory. 为kernel保留。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-7-4-file"><a href="#1-7-4-file" class="headerlink" title="1.7.4 file"></a>1.7.4 file</h5><ul>
+<li>uniform view to all applications</li>
+<li>系统中的所有io都是通过一小组称为unix i/o的系统函数调用读写file来完成的。</li>
+</ul>
+<h4 id="1-8-network"><a href="#1-8-network" class="headerlink" title="1.8 network"></a>1.8 network</h4><ul>
+<li>network 可以视为一个i/o device</li>
+</ul>
+<h4 id="1-9-重要主题"><a href="#1-9-重要主题" class="headerlink" title="1.9 重要主题"></a>1.9 重要主题</h4><h5 id="1-9-1-Amdahl定律"><a href="#1-9-1-Amdahl定律" class="headerlink" title="1.9.1 Amdahl定律"></a>1.9.1 Amdahl定律</h5><p>当我们对系统中某个部分进行加速时，其对整体系统性能的影响取决于该部分的重要性和加速程度。</p>
+<h5 id="1-9-2-concurrency-和-parallelism"><a href="#1-9-2-concurrency-和-parallelism" class="headerlink" title="1.9.2 concurrency 和 parallelism"></a>1.9.2 concurrency 和 parallelism</h5><p>concurrency -&gt; 通用概念，一个具有多个活动的系统<br>parallelism -&gt; 用concurrency来使一个系统运行的更快</p>
+<ul>
+<li>thread-level concurrency</li>
+<li>instruction-level parallelism</li>
+<li>single-instruction, multi-data(SIMD) parallelism</li>
+</ul>
+</div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/books/" rel="tag"># books</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/28/book/%E8%AF%BB%E5%90%8E%E6%84%9F/%E8%AF%BB%E5%90%8E%E6%84%9F-%E4%BB%8E%E4%B8%80%E5%88%B0%E6%97%A0%E7%A9%B7%E5%A4%A7/" rel="next" title="《从一到无穷大》记录">
+                  <i class="fa fa-chevron-left"></i> 《从一到无穷大》记录
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/30/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-1/" rel="prev" title="Linux 学习笔记 - 第一部分">
+                  Linux 学习笔记 - 第一部分 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主线："><span class="nav-number">1.1.</span> <span class="nav-text">主线：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#名词："><span class="nav-number">1.2.</span> <span class="nav-text">名词：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细节："><span class="nav-number">1.3.</span> <span class="nav-text">细节：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-information-bits-context"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.1 information = bits + context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-程序被其他程序翻译成不同格式"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.2 程序被其他程序翻译成不同格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-It-pays-to-understand-how-compilation-system-work"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3 It pays to understand how compilation system work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-系统硬件组成"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.4 系统硬件组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-OS-manages-hardware"><span class="nav-number">1.3.5.</span> <span class="nav-text">1.7 OS manages hardware</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-1-process"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">1.7.1 process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-2-threads"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">1.7.2 threads</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-3-virtual-memory"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">1.7.3 virtual memory</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-4-file"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">1.7.4 file</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-network"><span class="nav-number">1.3.6.</span> <span class="nav-text">1.8 network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-9-重要主题"><span class="nav-number">1.3.7.</span> <span class="nav-text">1.9 重要主题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-9-1-Amdahl定律"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">1.9.1 Amdahl定律</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-9-2-concurrency-和-parallelism"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">1.9.2 concurrency 和 parallelism</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Xin Diao"
+    src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Xin Diao</p>
+  <div class="site-description" itemprop="description">personal site, Xin Diao</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/mailto:beckdiao@gmail.com" title="E-Mail &amp;rarr; mailto:beckdiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCFUfiT1p7wdpg8teNdO42jQ" title="YouTube &amp;rarr; https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCFUfiT1p7wdpg8teNdO42jQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/xindiao11" title="Instagram &amp;rarr; https:&#x2F;&#x2F;instagram.com&#x2F;xindiao11" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xin Diao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

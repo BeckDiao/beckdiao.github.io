@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="books">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大话设计模式》记录">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;11&#x2F;book&#x2F;%E8%AF%BB%E5%90%8E%E6%84%9F&#x2F;%E8%AF%BB%E5%90%8E%E6%84%9F-%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="大雄的小本本 The Book Of Xin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-27T01:24:49.291Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/11/book/%E8%AF%BB%E5%90%8E%E6%84%9F/%E8%AF%BB%E5%90%8E%E6%84%9F-%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>《大话设计模式》记录 | 大雄的小本本 The Book Of Xin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大雄的小本本 The Book Of Xin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">where change happens</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-inventory">
+
+    <a href="/inventory/" rel="section"><i class="fa fa-fw fa-folder"></i>买手店</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>Kindle</a>
+
+  </li>
+        <li class="menu-item menu-item-videos">
+
+    <a href="/videos/" rel="section"><i class="fa fa-fw fa-youtube"></i>Final Cut</a>
+
+  </li>
+        <li class="menu-item menu-item-summaries">
+
+    <a href="/summary/" rel="section"><i class="fa fa-fw fa-file-word-o"></i>One page</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/BeckDiao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/book/%E8%AF%BB%E5%90%8E%E6%84%9F/%E8%AF%BB%E5%90%8E%E6%84%9F-%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Xin Diao">
+      <meta itemprop="description" content="personal site, Xin Diao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大雄的小本本 The Book Of Xin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《大话设计模式》记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-11 16:13:33" itemprop="dateCreated datePublished" datetime="2020-01-11T16:13:33-08:00">2020-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-26 17:24:49" itemprop="dateModified" datetime="2020-01-26T17:24:49-08:00">2020-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>优缺点都很明显。感觉出发点是很好的，但是作者的能力不足。事情总是这样，大神不屑于做，非大神却做不了那么好。</p>
+<a id="more"></a>
+
+<h2 id="参数-Parameters"><a href="#参数-Parameters" class="headerlink" title="参数 Parameters"></a>参数 Parameters</h2><ul>
+<li>类别：专业类</li>
+<li>电子/纸质：电子</li>
+<li>语言：中文</li>
+<li>页数： 368</li>
+<li>阅读难易： 1/5</li>
+<li>有趣程度： 3/5</li>
+<li>推荐指数： 2/5</li>
+<li>豆瓣链接： <a href="https://book.douban.com/subject/2334288/" target="_blank" rel="noopener">douban</a></li>
+<li>是否会重读： no</li>
+</ul>
+<h2 id="介绍和我的想法-Introduction-amp-My-thought-before-reading-douban-reviews"><a href="#介绍和我的想法-Introduction-amp-My-thought-before-reading-douban-reviews" class="headerlink" title="介绍和我的想法 Introduction &amp; My thought before reading douban reviews"></a>介绍和我的想法 Introduction &amp; My thought before reading douban reviews</h2><p>我个人一直认为，最好的学习新知识的方法就是把知识融入到现实例子、故事中表达出来，这样会给读者更深刻的印象和更有趣、有效的学习过程。所以，我觉得这本书的初衷是非常好的。<br>但同时，能做到这一点的要求却很高，把知识融会贯通是最基本的前提，另外，表达、合适的比喻等等也非常重要。这本书在这些方面做的不够好。<br>另外，作者的英文实在是有点不合格，让我看到sample code总是觉得非常尴尬。</p>
+<h2 id="为什么读这本书-Why-this-book"><a href="#为什么读这本书-Why-this-book" class="headerlink" title="为什么读这本书 Why this book?"></a>为什么读这本书 Why this book?</h2><p>就像上面提到的，我觉得这本书的初衷是很好的，另外看到评价也不错，在加上自己对design pattern一直不是很懂，所以想利用这本书学习一下。</p>
+<h2 id="写在看豆瓣书评之后-My-thought-before-reading-reviews-in-Douban"><a href="#写在看豆瓣书评之后-My-thought-before-reading-reviews-in-Douban" class="headerlink" title="写在看豆瓣书评之后 My thought before reading reviews in Douban"></a>写在看豆瓣书评之后 My thought before reading reviews in Douban</h2><p>大多数豆瓣评价跟我想的差不多吧，不过大家比较宽容，所以给的分数还都挺高的。确实，不难读，也不费时间，随便读读的入门书是个不错的选择吧。</p>
+<p>以下这段来源于一篇<a href="https://book.douban.com/review/5164571/" target="_blank" rel="noopener">书评</a>，觉得还蛮有用的，摘抄在此：</p>
+<blockquote>
+<p>以下的原则，是我在工作中总结的：<br>        复制代码是危险的。如果有两段相同的代码，几乎可以说一定是有问题的，因为每次改动，要维护两段代码<br>        尽量减少IO操作，如操作数据库，网络发送，甚至printf ，这些操作比直接操作内存，慢很多倍、<br>        修改Bug时，一定要从最简单的基本的地方开始检查，不要检查到最底层没问题，发现是传入的某个参数是错的。先不要怀疑系统的部分。<br>        设计架构，同时了解细节<br>        有些Bug,调起来可能费时费力，甚至花个二三天，其实当时写的时候，只要稍微注意，就可以轻松避免。避免Bug的代价与找出并修改Bug的代价，实在是差太多了。<br>        把一段长代码，分成很多小函数，便于维护，连自己都不愿看，不愿改的代码，百分百有问题。<br>        写程序时，先把流程搞清楚。把各个流程用的函数写清楚，函数可以留空，这样编程就变成了填空题。<br>        做新功能时，把数据结构的设计，放在较重要的位置</p>
+</blockquote>
+<h2 id="其他-Others"><a href="#其他-Others" class="headerlink" title="其他 Others"></a>其他 Others</h2><p>n/a</p>
+<h2 id="一些点-Points"><a href="#一些点-Points" class="headerlink" title="一些点 Points"></a>一些点 Points</h2><p>这次不想做摘抄了，因为（1）只是单纯的摘抄没太大用处 （2）模式太多，不是真的用到一次，哪怕理解了也很难想到去用 （3）比起这些模式，那些原则其实更有操作性</p>
+<p>原则如下：</p>
+<ol>
+<li>单一职责。每个类只实现一个功能，而不要融合太多功能在一个类里。</li>
+<li>开放封闭原则。对增加开放，对修改关闭。软件实体（类、模版、函数等）应该可以扩展，但是不可以修改。</li>
+<li>依赖倒转原则。抽象不应该依赖细节，而细节应该依赖抽象。依赖于抽象（接口或父类），而不依赖于实现（子类）</li>
+<li>迪米特法则。最少知识原则（模块A只接触和自己有直接关系的模块B，如果模块B和模块C有直接关系， 而模块A和模块C没有，则A调用C ,要通过B,而不是直接调用）</li>
+</ol>
+<h2 id="看完此书后接下来想读的相关的书-follow-up-books"><a href="#看完此书后接下来想读的相关的书-follow-up-books" class="headerlink" title="看完此书后接下来想读的相关的书 follow up books"></a>看完此书后接下来想读的相关的书 follow up books</h2><p>《clean code》</p>
+</div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/books/" rel="tag"># books</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/11/book/%E8%AF%BB%E5%90%8E%E6%84%9F/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" rel="next" title="《数学之美》记录">
+                  <i class="fa fa-chevron-left"></i> 《数学之美》记录
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/02/09/videos/vlog-%E4%B8%9C%E4%BA%ACvlog-part2/" rel="prev" title="东京vlog-part2">
+                  东京vlog-part2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-Parameters"><span class="nav-number">1.</span> <span class="nav-text">参数 Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍和我的想法-Introduction-amp-My-thought-before-reading-douban-reviews"><span class="nav-number">2.</span> <span class="nav-text">介绍和我的想法 Introduction &amp; My thought before reading douban reviews</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么读这本书-Why-this-book"><span class="nav-number">3.</span> <span class="nav-text">为什么读这本书 Why this book?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在看豆瓣书评之后-My-thought-before-reading-reviews-in-Douban"><span class="nav-number">4.</span> <span class="nav-text">写在看豆瓣书评之后 My thought before reading reviews in Douban</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他-Others"><span class="nav-number">5.</span> <span class="nav-text">其他 Others</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些点-Points"><span class="nav-number">6.</span> <span class="nav-text">一些点 Points</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#看完此书后接下来想读的相关的书-follow-up-books"><span class="nav-number">7.</span> <span class="nav-text">看完此书后接下来想读的相关的书 follow up books</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Xin Diao"
+    src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Xin Diao</p>
+  <div class="site-description" itemprop="description">personal site, Xin Diao</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/mailto:beckdiao@gmail.com" title="E-Mail &amp;rarr; mailto:beckdiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCFUfiT1p7wdpg8teNdO42jQ" title="YouTube &amp;rarr; https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCFUfiT1p7wdpg8teNdO42jQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/xindiao11" title="Instagram &amp;rarr; https:&#x2F;&#x2F;instagram.com&#x2F;xindiao11" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xin Diao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
