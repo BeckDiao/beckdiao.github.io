@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="books">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 学习笔记 - 第四部分">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;10&#x2F;book&#x2F;%E7%AC%94%E8%AE%B0&#x2F;%E7%AC%94%E8%AE%B0-Linux-part-4&#x2F;index.html">
+<meta property="og:site_name" content="大雄的小本本 The Book Of Xin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-12T01:19:13.849Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/10/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux 学习笔记 - 第四部分 | 大雄的小本本 The Book Of Xin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大雄的小本本 The Book Of Xin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">where change happens</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-inventory">
+
+    <a href="/inventory/" rel="section"><i class="fa fa-fw fa-folder"></i>买手店</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>Kindle</a>
+
+  </li>
+        <li class="menu-item menu-item-videos">
+
+    <a href="/videos/" rel="section"><i class="fa fa-fw fa-youtube"></i>Final Cut</a>
+
+  </li>
+        <li class="menu-item menu-item-summaries">
+
+    <a href="/summary/" rel="section"><i class="fa fa-fw fa-file-word-o"></i>One page</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/BeckDiao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Xin Diao">
+      <meta itemprop="description" content="personal site, Xin Diao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大雄的小本本 The Book Of Xin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 学习笔记 - 第四部分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-10 16:13:33" itemprop="dateCreated datePublished" datetime="2020-04-10T16:13:33-07:00">2020-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-11 18:19:13" itemprop="dateModified" datetime="2020-04-11T18:19:13-07:00">2020-04-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>鸟叔的Linux私房菜 之 第四部分 Linux 使用者管理</p>
+<p>根据我过去的工作经验，第15， 16章需要用到的非常少，可以说几乎没有，甚至很多概念我从来没听说过，所以我看的也非常不认真，把大概的点写在这儿，等以后有需要的时候再回来仔细看吧。</p>
+<p>第16， 17章(除了SELinux)非常有用。</p>
+<p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php#part4" target="_blank" rel="noopener">link</a></p>
+<a id="more"></a> 
+
+<h2 id="第14章-ACL"><a href="#第14章-ACL" class="headerlink" title="第14章 ACL"></a>第14章 ACL</h2><h3 id="一些points，没有仔细了解，等有需要的时候再看："><a href="#一些points，没有仔细了解，等有需要的时候再看：" class="headerlink" title="一些points，没有仔细了解，等有需要的时候再看："></a>一些points，没有仔细了解，等有需要的时候再看：</h3><ul>
+<li>ACL - Access Control List </li>
+<li>su - 切换到root身份，需要root password</li>
+<li>sudo - (有root权限的user)以root身份run command,需要user password</li>
+<li>PAM  - Pluggable Authentication Modules -&gt; AuthN API</li>
+</ul>
+<h2 id="第15章-Quota与-进阶FileSystem管理"><a href="#第15章-Quota与-进阶FileSystem管理" class="headerlink" title="第15章 Quota与 进阶FileSystem管理"></a>第15章 Quota与 进阶FileSystem管理</h2><h3 id="quota-limitation："><a href="#quota-limitation：" class="headerlink" title="quota limitation："></a>quota limitation：</h3><ol>
+<li>实际运行中是针对整个file system进行限制的</li>
+<li>root不能配置quota<br>所以，不能针对dir来进行quota设计，只能针对file system来配置。</li>
+</ol>
+<h3 id="quota的配置"><a href="#quota的配置" class="headerlink" title="quota的配置"></a>quota的配置</h3><ul>
+<li>block(使用的disk容量), inode(可以创建的file数量)</li>
+<li>soft/hard</li>
+<li>grace time</li>
+</ul>
+<h3 id="LVM-logical-volume-manager"><a href="#LVM-logical-volume-manager" class="headerlink" title="LVM(logical volume manager)"></a>LVM(logical volume manager)</h3><h4 id="作法："><a href="#作法：" class="headerlink" title="作法："></a>作法：</h4><p>将几个实体的 partitions (或 disk) 通过software组合成为一块看起来是独立的大disk(VG， volume group) ，然后将这块大disk再经过分割成为可使用分割槽 (LV, logical volume)， 最终就能够mount使用了</p>
+<h2 id="第16章-crontab"><a href="#第16章-crontab" class="headerlink" title="第16章 crontab"></a>第16章 crontab</h2><h3 id="run-once-at"><a href="#run-once-at" class="headerlink" title="run once: at"></a>run once: <code>at</code></h3><ul>
+<li>可以限制<code>at</code>的使用权限</li>
+<li><code>bacth</code>: run once when cpu is not busy (本质也是<code>at</code>)</li>
+</ul>
+<h3 id="periodically-run-crontab"><a href="#periodically-run-crontab" class="headerlink" title="periodically run: crontab"></a>periodically run: <code>crontab</code></h3><ul>
+<li>可以限制<code>cron</code>的使用权限</li>
+<li>可以规定具体第几分钟才避免所有command一起执行(比如所有的程序都是每5分钟运行一次)</li>
+</ul>
+<h3 id="anacron"><a href="#anacron" class="headerlink" title="anacron"></a>anacron</h3><p>对于不是24小时开机的host，<code>anacron</code>可以监测关机期间应该进行但是没有进行的crontab任务，任务运行一遍后就会自动停止。</p>
+<h2 id="第17章-process管理-与-SELinux"><a href="#第17章-process管理-与-SELinux" class="headerlink" title="第17章 process管理 与 SELinux"></a>第17章 process管理 与 SELinux</h2><h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><ul>
+<li>触发任何一个事件时，system都会定义为一个process，并且给这个proces一个ID，PID，同时根据run这个program的user和相关的属性关系，给这个PID一组有效的permission。</li>
+<li>program vs process<ul>
+<li>program - a binary prgram -&gt; a file saved in disk</li>
+<li>process - program被run后，user的permission和属性、program和所需的数据都被加载到memory中，is给这个memory内的unit一个PID。<strong>所以，可以说process是一个运行中的program.</strong></li>
+</ul>
+</li>
+<li>fork and exec: 每次在run一个command的时候，其实都是开始一个新的process，这里会把bash fork一下(作为新process的PPID)，然后运行，command运行结束后，这个process就自动被kill了。</li>
+<li>daemon: 启动后在background中一直持续不断的运行，常驻memory中</li>
+</ul>
+<h3 id="多人多工"><a href="#多人多工" class="headerlink" title="多人多工"></a>多人多工</h3><ul>
+<li>Linux可以支持多人多工的一个原因就是<strong>每个人可以有自己的environment</strong></li>
+<li>多人的environment就是每个人登录后shell的不同的PID</li>
+<li>Linux 几乎可以说绝对不会死机的</li>
+</ul>
+<blockquote>
+<p>可以在任何时候，将某个被困住的程序杀掉，然后再重新运行该程序而不用重新启动</p>
+</blockquote>
+<blockquote>
+<p>如果我在 Linux 下以文字界面登陆，在萤幕当中显示错误信息后就挂了～动都不能动，该如何是好！？ 这个时候那默认的七个窗口就帮上忙啦！你可以随意的再按 [Alt]+[F1]…..[F7] 来切换到其他的终端机界面，然后以 <code>ps -aux</code> 找出刚刚的错误程序，然后给他 <code>kill</code> 一下，哈哈，回到刚刚的终端机界面</p>
+</blockquote>
+<ul>
+<li>在backgroud中运行 <code>command &amp;</code></li>
+</ul>
+<h3 id="job-control"><a href="#job-control" class="headerlink" title="job control"></a>job control</h3><p>当我们登陆系统取得 bash shell 之后，在单一终端机介面(tty1, tty2…)下同时进行多个工作的行为管理</p>
+<blockquote>
+<p>进行工作管理的行为中， 其实每个工作都是目前 bash的子程序，亦即彼此之间是有相关性的。 我们无法以 job control的方式由 tty1 的环境去管理 tty2 的 bash</p>
+</blockquote>
+<ul>
+<li>将『目前』的工作丢到backgroud中『暂停』：[ctrl]-z</li>
+<li><code>jobs</code> - 查看当前的jobs</li>
+<li><code>fg %N</code> - 把background的job拿到foreground</li>
+<li><code>bg %N</code> - 让background中的job在background run. example:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find / -perm +7000 &gt; /tmp/text.txt  # start a new job</span><br><span class="line"># ctrl z</span><br><span class="line">$ jobs ; bg %1 ; jobs  # check jobs；让find在background中运行；查看jobs</span><br></pre></td></tr></table></figure></li>
+<li><code>kill</code> 来关掉job. <strong>kill 后面默认是PID，想kill job，要用%N表示Job ID</strong></li>
+<li>case: 想要离线，但是又想让某个Job(比如command)继续run<ul>
+<li>用 <code>at</code></li>
+<li>用 <code>nohup</code><ul>
+<li>注意：<code>nohup</code>不支持bush built-in的command，所以要用absolute path</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="process-management"><a href="#process-management" class="headerlink" title="process management"></a>process management</h3><h4 id="show-ps-的-command"><a href="#show-ps-的-command" class="headerlink" title="show ps 的 command"></a>show ps 的 command</h4><ul>
+<li><code>ps</code> - static<ul>
+<li><code>ps -l</code>: 仅观察自己的 bash 相关程序</li>
+<li><code>ps aux</code>: 观察系统所有程序</li>
+</ul>
+</li>
+<li><code>top</code> - keep tracking</li>
+<li><code>pstree</code> - 程序相关性 show ps as a treee</li>
+</ul>
+<h4 id="process-management-1"><a href="#process-management-1" class="headerlink" title="process management"></a>process management</h4><ul>
+<li>signal<ul>
+<li><code>man 7 singal</code> 可以查询singal代号</li>
+<li>1 SIGNUP 类似重启</li>
+<li>9 SIGKILL 强行中断</li>
+<li>15 SIGTERM 正常结束</li>
+</ul>
+</li>
+<li><code>kill -signal PID</code></li>
+<li>priority 和 nice - 调节ps manage的priority</li>
+<li>系统资源观察<ul>
+<li><code>free</code> 查看memory</li>
+<li><code>uname</code> 查看system和kernel相关Info</li>
+<li><code>uptime</code> 启动时间和load</li>
+<li><code>netstat</code> 常用在network方面，但是ps management方面也有用,e.g. 查port等</li>
+</ul>
+</li>
+<li>SUID/SGID(可以粗略理解为runtime时user拥有owner权限的特殊权限) -&gt; <a href="/2020/04/03/book/笔记/笔记-Linux-part-2/#6-4-3-file-特殊权限：-SUID-SGID-SBIT">第六章曾经在permission那儿提到过</a><ul>
+<li>SUID的permission其实和process非常有关，因为:运行了password后会取得一个新的process-&gt;PID，这个PID产生时通过SUID给了PID特殊的permission</li>
+</ul>
+</li>
+<li><code>fuser</code> 找出正在使用某file的process</li>
+<li><code>lsof</code> (反向<code>fuser</code>)找出某个Process正在使用的file</li>
+<li><code>pidof</code> 找出某个正在运行程序的PID <strong>经常配合<code>ps aux</code>使用</strong></li>
+</ul>
+<h4 id="SELinux"><a href="#SELinux" class="headerlink" title="SELinux"></a>SELinux</h4><p>这部分我是一点概念都没有，就先跳过了</p>
+<p>##</p>
+</div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/books/" rel="tag"># books</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/04/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-3/" rel="next" title="Linux 学习笔记 - 第三部分">
+                  <i class="fa fa-chevron-left"></i> Linux 学习笔记 - 第三部分
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/04/11/inventory/monthly-report/inventory-2020-03/" rel="prev" title="2020.03 WFH的一整个月">
+                  2020.03 WFH的一整个月 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第14章-ACL"><span class="nav-number">1.</span> <span class="nav-text">第14章 ACL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一些points，没有仔细了解，等有需要的时候再看："><span class="nav-number">1.1.</span> <span class="nav-text">一些points，没有仔细了解，等有需要的时候再看：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第15章-Quota与-进阶FileSystem管理"><span class="nav-number">2.</span> <span class="nav-text">第15章 Quota与 进阶FileSystem管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quota-limitation："><span class="nav-number">2.1.</span> <span class="nav-text">quota limitation：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quota的配置"><span class="nav-number">2.2.</span> <span class="nav-text">quota的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVM-logical-volume-manager"><span class="nav-number">2.3.</span> <span class="nav-text">LVM(logical volume manager)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作法："><span class="nav-number">2.3.1.</span> <span class="nav-text">作法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第16章-crontab"><span class="nav-number">3.</span> <span class="nav-text">第16章 crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#run-once-at"><span class="nav-number">3.1.</span> <span class="nav-text">run once: at</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#periodically-run-crontab"><span class="nav-number">3.2.</span> <span class="nav-text">periodically run: crontab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anacron"><span class="nav-number">3.3.</span> <span class="nav-text">anacron</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第17章-process管理-与-SELinux"><span class="nav-number">4.</span> <span class="nav-text">第17章 process管理 与 SELinux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Process"><span class="nav-number">4.1.</span> <span class="nav-text">Process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多人多工"><span class="nav-number">4.2.</span> <span class="nav-text">多人多工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#job-control"><span class="nav-number">4.3.</span> <span class="nav-text">job control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#process-management"><span class="nav-number">4.4.</span> <span class="nav-text">process management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#show-ps-的-command"><span class="nav-number">4.4.1.</span> <span class="nav-text">show ps 的 command</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process-management-1"><span class="nav-number">4.4.2.</span> <span class="nav-text">process management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SELinux"><span class="nav-number">4.4.3.</span> <span class="nav-text">SELinux</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Xin Diao"
+    src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Xin Diao</p>
+  <div class="site-description" itemprop="description">personal site, Xin Diao</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/mailto:beckdiao@gmail.com" title="E-Mail &amp;rarr; mailto:beckdiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCFUfiT1p7wdpg8teNdO42jQ" title="YouTube &amp;rarr; https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCFUfiT1p7wdpg8teNdO42jQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/xindiao11" title="Instagram &amp;rarr; https:&#x2F;&#x2F;instagram.com&#x2F;xindiao11" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xin Diao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

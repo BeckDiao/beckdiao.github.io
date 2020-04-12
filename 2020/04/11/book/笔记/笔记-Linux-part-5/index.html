@@ -51,17 +51,16 @@
   };
 </script>
 
-  <meta name="description" content="personal site, Xin Diao">
-<meta name="keywords" content="blogs,vlogs,photography,reviews">
-<meta property="og:type" content="website">
-<meta property="og:title" content="大雄的小本本 The Book Of Xin">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;03&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="keywords" content="books">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 学习笔记 - 第五部分">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;11&#x2F;book&#x2F;%E7%AC%94%E8%AE%B0&#x2F;%E7%AC%94%E8%AE%B0-Linux-part-5&#x2F;index.html">
 <meta property="og:site_name" content="大雄的小本本 The Book Of Xin">
-<meta property="og:description" content="personal site, Xin Diao">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-12T07:30:53.729Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/03/page/2/">
+<link rel="canonical" href="http://yoursite.com/2020/04/11/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-5/">
 
 
 <script id="page-configurations">
@@ -69,13 +68,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | 大雄的小本本 The Book Of Xin</title>
+  <title>Linux 学习笔记 - 第五部分 | 大雄的小本本 The Book Of Xin</title>
   
 
 
@@ -197,53 +196,155 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 38 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/book/%E7%AC%94%E8%AE%B0/%E7%AC%94%E8%AE%B0-Linux-part-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Xin Diao">
+      <meta itemprop="description" content="personal site, Xin Diao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大雄的小本本 The Book Of Xin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 学习笔记 - 第五部分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-11 16:13:33" itemprop="dateCreated datePublished" datetime="2020-04-11T16:13:33-07:00">2020-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-12 00:30:53" itemprop="dateModified" datetime="2020-04-12T00:30:53-07:00">2020-04-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>鸟叔的Linux私房菜 之 第五部分 Linux 系统管理员</p>
+<p>最后一部分涵盖的内容很多，但是对我而言，我觉得用处不大。尤其在现在的公司，Linux本身配置、setup、deploy什么的已经不需要每个人弄了，大家用的都是现场弄好的，不需要也不被允许去随意更改，所以也就不需要去研究这些了。所以这部分只是记录一些点和常见的名词。没有仔细看，等以后用到了再回来看吧。</p>
+<p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php#part5" target="_blank" rel="noopener">link</a></p>
+<a id="more"></a> 
+
+
+<h2 id="第18章-Daemon"><a href="#第18章-Daemon" class="headerlink" title="第18章 Daemon"></a>第18章 Daemon</h2><h3 id="daemon"><a href="#daemon" class="headerlink" title="daemon"></a>daemon</h3><ul>
+<li>daemon 分类：<ul>
+<li>stand_alone </li>
+<li>super daemon 管理的daemon，e.g. xinetd<ul>
+<li>triggered by request</li>
+<li>优点：<ul>
+<li>super daemon具有security control and management机制(可以理解为firewall)，所以：<ul>
+<li>对client开放较多权限的service(e.g. telnet)</li>
+<li>本身不具有管理机制或firewall的service</li>
+</ul>
+</li>
+<li>service 可以在request结束后就关闭，不占用资源</li>
+</ul>
+</li>
+<li>缺点：latency(load to memory)</li>
+<li>firewall也可以配置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第22章-source-code和tarball"><a href="#第22章-source-code和tarball" class="headerlink" title="第22章 source code和tarball"></a>第22章 source code和tarball</h2><h3 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h3><ul>
+<li>make &amp; configure<ul>
+<li>make: program, to find makefile (record how to compile source code)</li>
+<li>configure侦测程序(software provider提供，侦测user的environment，如是否有软件必需的功能等) -&gt; create makefile</li>
+</ul>
+</li>
+</ul>
+<h3 id="Tarball-POSIX标准"><a href="#Tarball-POSIX标准" class="headerlink" title="Tarball(POSIX标准)"></a>Tarball(POSIX标准)</h3><p>Tarball 文件: 将软件的所有source code先以 tar 打(然后再以压缩技术来压缩，通常最常见的就是以 gzip 来压缩)</p>
+<ul>
+<li>.tar是未压缩的</li>
+<li>.tar.gz(=.tgz)等是经过gzip压缩过的</li>
+</ul>
+<p>tarball里面一般包括：</p>
+<ul>
+<li>source code</li>
+<li>configure/config file(侦测程序文件)</li>
+<li>README</li>
+</ul>
+<h3 id="library"><a href="#library" class="headerlink" title="library"></a>library</h3><h4 id="static-library"><a href="#static-library" class="headerlink" title="static library"></a>static library</h4><ul>
+<li><code>*.a</code></li>
+<li>integrate on compile time</li>
+<li>最大优点：compiled executable 可以独立运行，不再有external call</li>
+<li>library升级了，executable必需重新compile</li>
+</ul>
+<h4 id="dynamic-library-prefered"><a href="#dynamic-library-prefered" class="headerlink" title="dynamic library(prefered)"></a>dynamic library(prefered)</h4><ul>
+<li><code>*.so</code></li>
+<li>used on runtime</li>
+<li>compiled executable不能独立运行，<code>*.so</code>的path甚至都不能变</li>
+<li>library升级 executable不需要重新compile</li>
+<li>always under <code>usr/lib</code></li>
+<li>cache dynamic library: <code>ldconfig</code></li>
+<li>判断binary file中含有哪些<code>*.so</code>: <code>ldd</code></li>
+</ul>
+<h3 id="checksum"><a href="#checksum" class="headerlink" title="checksum"></a>checksum</h3><p>一般用MD5和SHA1</p>
+</div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-09T14:21:33-07:00"
-              content="2020-03-09">
-          03-09
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/books/" rel="tag"># books</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/09/videos/vlog-%E7%88%B1%E5%9C%A8vlog/" itemprop="url">
-            <span itemprop="name">Before Sunset  爱在日落黄昏时 圣地巡礼 vlog</span>
-          </a>
-      </h2>
+        
 
-    </header>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/11/inventory/monthly-report/inventory-2020-03/" rel="next" title="2020.03 WFH的一整个月">
+                  <i class="fa fa-chevron-left"></i> 2020.03 WFH的一整个月
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-    </div>
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2020/03/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2020/03/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -272,6 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第18章-Daemon"><span class="nav-number">1.</span> <span class="nav-text">第18章 Daemon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#daemon"><span class="nav-number">1.1.</span> <span class="nav-text">daemon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第22章-source-code和tarball"><span class="nav-number">2.</span> <span class="nav-text">第22章 source code和tarball</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Make"><span class="nav-number">2.1.</span> <span class="nav-text">Make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tarball-POSIX标准"><span class="nav-number">2.2.</span> <span class="nav-text">Tarball(POSIX标准)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#library"><span class="nav-number">2.3.</span> <span class="nav-text">library</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static-library"><span class="nav-number">2.3.1.</span> <span class="nav-text">static library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dynamic-library-prefered"><span class="nav-number">2.3.2.</span> <span class="nav-text">dynamic library(prefered)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checksum"><span class="nav-number">2.4.</span> <span class="nav-text">checksum</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -287,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
