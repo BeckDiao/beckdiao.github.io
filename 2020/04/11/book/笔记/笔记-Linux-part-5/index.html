@@ -10,6 +10,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -30,7 +32,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -249,7 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css"><div class=".article-gallery" <p>鸟叔的Linux私房菜 之 第五部分 Linux 系统管理员<p></p>
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>鸟叔的Linux私房菜 之 第五部分 Linux 系统管理员</p>
 <p>最后一部分涵盖的内容很多，但是对我而言，我觉得用处不大。尤其在现在的公司，Linux本身配置、setup、deploy什么的已经不需要每个人弄了，大家用的都是现场弄好的，不需要也不被允许去随意更改，所以也就不需要去研究这些了。所以这部分只是记录一些点和常见的名词。没有仔细看，等以后用到了再回来看吧。</p>
 <p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php#part5" target="_blank" rel="noopener">link</a></p>
 <a id="more"></a> 
@@ -418,7 +420,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -432,6 +434,10 @@
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="chat motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -524,6 +530,7 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>

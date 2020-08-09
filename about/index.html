@@ -10,6 +10,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -30,7 +32,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -217,7 +219,7 @@
       
       
       <div class="post-body">
-          <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css"><div class=".article-gallery" <hr>
+          <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<hr>
 <h2 id="关于本网站"><a href="#关于本网站" class="headerlink" title="关于本网站"></a>关于本网站</h2><p>本博客的诞生源于我27岁生日的一个想法。当时苦于想不出任何生日愿望的即将27岁的我，在听podcast的时候听到了《日谈公园》中聊《20岁、30岁、40岁》的一期，史里芬对于自己30岁的想法的大概意思是说，他在找到自己的“相信是正确的”生活节奏后致力于把自己的生活变得更程式化，并且会在30岁阶段一直持续保持这个“程序”运转。而对于我来说，现在还处于「不知道自己想要什么」、「不知道自己想追求什么」的时候，也想要找到自己的这么一个“自我相信正确”的生活节奏，天天在写程序的我也想给自己的生活找到一种workflow，从而可以让自己的生命keep increment/accumulation。<strong>开始这个网站就是其中一个action item。</strong> 我希望把自己平时的input通过某种方式转化为output，比如视频的形式、文字的形式，各种部分就像七巧板的一个个部件，而这个网站就是来展示他们组合起来的一个个形状。希望自己可以每天、每周、每月都有所改变，而这个网站就是where change happens。就像当初开始想做vlog的初衷一样，不是为了让别人看到，而是因为碎片容易丢失，而作品却不会，哪怕这个作品不够大、不够好，但是分子间的聚合性会让内容保存下来。</p>
 <p>另外，我相信小土刀在<a href="https://www.zhihu.com/question/47788269" target="_blank" rel="noopener">关于他的知乎问题上说的</a>: <strong>写作即是思考，按照主题有目的组织自己所学的内容，坚持下去会有极大的收获。</strong></p>
 <p>这个网站由如下几个部分组成：</p>
@@ -295,7 +297,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -309,6 +311,10 @@
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="chat motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -401,6 +407,7 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>

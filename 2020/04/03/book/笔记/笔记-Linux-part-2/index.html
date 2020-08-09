@@ -10,6 +10,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -30,7 +32,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -256,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css"><div class=".article-gallery" <p>鸟叔的Linux私房菜 之 第二部分 Linux 文件、目录与磁盘格式<p></p>
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>鸟叔的Linux私房菜 之 第二部分 Linux 文件、目录与磁盘格式</p>
 <p>Linux的一些基本概念，需要牢牢掌握、理解。</p>
 <p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php#part2" target="_blank" rel="noopener">link</a></p>
 <a id="more"></a> 
@@ -406,7 +408,7 @@
 <td>root的home dir</td>
 </tr>
 <tr>
-<td>/lib<qual></qual></td>
+<td>/lib<qual></td>
 <td>与/lib格式不同之外的函数库，如/lib64</td>
 </tr>
 </tbody></table>
@@ -480,7 +482,7 @@
 </tr>
 </tbody></table>
 <h5 id="var-的意义与内容："><a href="#var-的意义与内容：" class="headerlink" title="/var 的意义与内容："></a>/var 的意义与内容：</h5><p>如果/usr是安装时会占用较大disk容量的目录,/var就是在系统运作后才会渐渐占用disk容量的目录。<br>只要针对常态性变动型file，如cache,log等</p>
-<h4 id="5-3-2-directory-tree"><a href="#5-3-2-directory-tree" class="headerlink" title="5.3.2 directory tree"></a>5.3.2 directory tree</h4><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png"></a>
+<h4 id="5-3-2-directory-tree"><a href="#5-3-2-directory-tree" class="headerlink" title="5.3.2 directory tree"></a>5.3.2 directory tree</h4><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png"/></a>
 root dir tree
 
 <p>注意：图中的Link不一定适用于所有distribution。</p>
@@ -504,7 +506,7 @@ root dir tree
 <h4 id="6-4-3-file-特殊权限：-SUID-SGID-SBIT"><a href="#6-4-3-file-特殊权限：-SUID-SGID-SBIT" class="headerlink" title="6.4.3 file 特殊权限： SUID, SGID, SBIT"></a>6.4.3 file 特殊权限： SUID, SGID, SBIT</h4><ol>
 <li>SUID(set Uer ID up on execution): 当s出现在owner的x权限上时(比如/usr/bin/passwd 的权限 -rw<strong>s</strong>r-xr-x)，被称为SUID。<br>限制与功能：SUID仅对binary program(不能Shell script) 有效。执行者需要有x权限。仅在run-time有效。执行者将（暂时）拥有Owner权限。</li>
 </ol>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">RECALL</span>:</span><br><span class="line">所有的系统上的帐号与一般身份user，还有那个root的相关<span class="meta">info</span>，都是记录在/etc/passwd这个档案内的。</span><br><span class="line"><span class="symbol">user</span>的密码记录和secure <span class="meta">info</span>在/etc/shadow这个档案下</span><br><span class="line">/usr/<span class="keyword">bin/passwd: </span><span class="keyword">binary </span>用来改密码的<span class="keyword">binary </span>program</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RECALL:</span><br><span class="line">所有的系统上的帐号与一般身份user，还有那个root的相关info，都是记录在/etc/passwd这个档案内的。</span><br><span class="line">user的密码记录和secure info在/etc/shadow这个档案下</span><br><span class="line">/usr/bin/passwd: binary 用来改密码的binary program</span><br></pre></td></tr></table></figure>
 <p>以shadow + passwd 为例：<br>GIVEN：<br>/etc/shadow 只有root可以读写<br>/usr/bin/passwd user($xindiao) 有r+x权限，但没有w</p>
 <p>WHEN：<br>/passwd 的权限： <code>-rw**s**r-xr-x 1 root root ...</code> ==&gt; user(xindiao)可以执行这个file，但这个file 的 owner 是root ==&gt; owner上的x 变成了s ==&gt; SUID</p>
 <p>THEN：<br>user($xindiao) 在执行passwd的<strong>过程中</strong> 会暂时拥有root 权限 ==&gt; 所以 user($xindiao) 就可以修改 /etc/shadow </p>
@@ -527,7 +529,7 @@ root dir tree
 <ol start="3">
 <li><code>find [PATH] [option] [action]</code><br>与time有关的option:<br>有-atime, -ctime, -mtime<br>还有n, +n, -n, newer file等 (n是数字)</li>
 </ol>
-<p>find的特殊功能就是能够进行<strong>额外动作</strong><br>e.g.<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png"></a><br>find的action sample.png</p>
+<p>find的特殊功能就是能够进行<strong>额外动作</strong><br>e.g.<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png"/></a><br>find的action sample.png</p>
 <p>sample中特殊的地方有<code>{}</code> 以及<code>\;</code> 还有<code>-exec</code> 这个关键字，这些东西的意义为：<br><code>{}</code> 代表的是『由find 找到的内容』，如上图所示，find 的结果会被放置到{} 位置中；<br><code>-exec</code> 一直到<code>\;</code> 是关键字，代表find 额外动作的开始(-exec) 到结束(;) ，在这中间的就是find 指令内的额外动作。<br>因为<code>;</code>在bash 环境下是有特殊意义的，因此利用<code>/</code>来标识。</p>
 <hr>
 <h2 id="第7章-Linux-disk-与-file-system管理"><a href="#第7章-Linux-disk-与-file-system管理" class="headerlink" title="第7章 Linux disk 与 file system管理"></a>第7章 Linux disk 与 file system管理</h2><h3 id="7-1-认识Linux-file-system"><a href="#7-1-认识Linux-file-system" class="headerlink" title="7.1 认识Linux file system"></a>7.1 认识Linux file system</h3><ul>
@@ -548,17 +550,17 @@ root dir tree
 <p>两种存放方式：</p>
 <ol>
 <li><p>indexed allocation(inode/block)</p>
-<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png"></a>
+<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png"/></a>
 inode/block data存取示意图
 </li>
 <li><p>FAT(用于如U盘)</p>
-<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png"></a>
+<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png"/></a>
 FAT file system 资料存取示意图
 
 </li>
 </ol>
 <p>这种如果block太过分散，disk无法转一圈读取所有资料的话，会很慢，所以过一段时间就需要 disk重组。</p>
-<h4 id="7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode"><a href="#7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode" class="headerlink" title="7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)"></a>7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)</h4><p>因为：inode 与 block数量庞大，不易管理<br>所以：block group:<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png"></a></p>
+<h4 id="7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode"><a href="#7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode" class="headerlink" title="7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)"></a>7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)</h4><p>因为：inode 与 block数量庞大，不易管理<br>所以：block group:<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png"/></a></p>
 <p><strong>boot sector</strong>: 安装开机管理程序。file system最前端。</p>
 <ul>
 <li><p>data block:<br>基本限制：</p>
@@ -608,7 +610,7 @@ FAT file system 资料存取示意图
 </ul>
 <p><strong>– pointer</strong></p>
 <p>特性：<br>– 每个inode都是固定的128 bytes(随着File system可变)<br>– 每个file只有一个inode<br>– so, 一个File System上能够create的file 数量与inode的数量有关<br>– system在读取file时，先找到inode，分析inode所记录的permission和user是否符合，若符合再开始读取block的内容</p>
-<p>inode/block 与 file 大小关系：<br>inode 记录block 号码的区域定义为12个直接，一个间接, 一个双间接与一个三间接记录区：<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png"></a></p>
+<p>inode/block 与 file 大小关系：<br>inode 记录block 号码的区域定义为12个直接，一个间接, 一个双间接与一个三间接记录区：<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png"/></a></p>
 <ul>
 <li><p>superblock<br>记录整个filesystem 相关info的地方<br>主要有：</p>
 </li>
@@ -659,15 +661,15 @@ FAT file system 资料存取示意图
 <li>更新inode bitmap + block bitmap， 并更新superblock</li>
 </ol>
 <h5 id="如果发生inconsistence-gt-Journaling-filesystem"><a href="#如果发生inconsistence-gt-Journaling-filesystem" class="headerlink" title="如果发生inconsistence ==&gt; Journaling filesystem"></a>如果发生inconsistence ==&gt; Journaling filesystem</h5><p>早期如果inconsistence: 在开机时借助一些Metadata和flag去全面check整个系统，太慢。<br>现在：Journaling filesystem：专门用一个block来记录写入和修改file的步骤<br>预备(记录 预备开始) –&gt; 实际写入(更新metadata资料) –&gt; 结束(记录 完成)</p>
-<h4 id="7-1-6-Linux-File-System的运作"><a href="#7-1-6-Linux-File-System的运作" class="headerlink" title="7.1.6 Linux File System的运作"></a>7.1.6 Linux File System的运作</h4><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RECALL</span>: 所有的<span class="class"><span class="keyword">data</span> 都得要载入到memory后<span class="type">CPU</span>才能够对该<span class="keyword">data</span>进行处理</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-1-6-Linux-File-System的运作"><a href="#7-1-6-Linux-File-System的运作" class="headerlink" title="7.1.6 Linux File System的运作"></a>7.1.6 Linux File System的运作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RECALL: 所有的data 都得要载入到memory后CPU才能够对该data进行处理</span><br></pre></td></tr></table></figure>
 <p>==&gt; Problem: 如果经常修改超大的file，那么会很慢（因为disk写入速度慢）</p>
 <p>==&gt; 解决办法：Asynchronously<br>利用一个flag: clean/dirty –&gt; 系统会定期把Memory中dirty的file与disk同步</p>
 <p>==&gt; 即使有Asynchronously，我们还希望效率更高，于是linux把常用的file直接存到memory中的cache区。所以Linux系统的Memory被用尽是很正常的。<br>PS：可以用<code>sync</code>来强制同步disk。关机等action时sync也会被自动调用。所以强行断电的时候可能会损毁file。</p>
-<h4 id="7-1-7-Mount-point"><a href="#7-1-7-Mount-point" class="headerlink" title="7.1.7 Mount point"></a>7.1.7 Mount point</h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每个filesystem都有独立的inode / block / superblock等info，</span><br><span class="line">这个<span class="built_in">file</span> <span class="keyword">system</span>要能够connect到<span class="built_in">directory</span> tree才能被我们使用。</span><br></pre></td></tr></table></figure>
+<h4 id="7-1-7-Mount-point"><a href="#7-1-7-Mount-point" class="headerlink" title="7.1.7 Mount point"></a>7.1.7 Mount point</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每个filesystem都有独立的inode / block / superblock等info，</span><br><span class="line">这个file system要能够connect到directory tree才能被我们使用。</span><br></pre></td></tr></table></figure>
 <p><strong><em>将File System 和 Directory Tree 连接的action ==&gt; Mount</em></strong><br><code>重点：Mount point 一定是目录，该目录为进入该File System的入口</code></p>
 <p>所有Mount point 的inode number应该都是一样的 –&gt; 最顶层目录的inode number(一般为2, depends on 预设的File System)</p>
 <p><strong>From Other websites:</strong></p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">不是所有逻辑上的父子关系都必须要是同一个设备，</span><br><span class="line">决定不同路径对应到哪个设备的机制就叫做mount（挂载）。</span><br><span class="line">通过mount，可以设置当前的路径与设备的对应关系。</span><br><span class="line"></span><br><span class="line">每个设备会设置一个挂载点，挂载点是一个空目录。</span><br><span class="line">一般来说必须有一个设备挂载在/这个根路径下面，叫做rootfs。</span><br><span class="line">其他挂载点可以是/tmp，/<span class="keyword">boot</span>，/dev等等，</span><br><span class="line">通过在rootfs上面创建一个空目录然后用mount命令就可以将设备挂载到这个目录上。</span><br><span class="line">挂载之后，这个目录下的子路径，就会映射到被挂载的设备里面。</span><br><span class="line">当访问一个路径时，会选择一个能最大匹配当前路径前缀的挂载点。</span><br><span class="line">比如说，有/<span class="keyword">var</span>的挂载点，也有/<span class="keyword">var</span>/<span class="keyword">run</span>的挂载点的情况下，</span><br><span class="line">访问/<span class="keyword">var</span>/<span class="keyword">run</span>/<span class="keyword">test</span>.pid，就会匹配到/<span class="keyword">var</span>/<span class="keyword">run</span>挂载点设备下面的/<span class="keyword">test</span>.pid。</span><br><span class="line">同一个设备可以有多个挂载点，同一个挂载点同时只能加载一个设备。</span><br><span class="line">访问非挂载点的路径的时候，按照前面所说，其实是访问最接近的一个挂载点，</span><br><span class="line">如果没有其他挂载点那么就是rootfs上的目录或者文件了。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">不是所有逻辑上的父子关系都必须要是同一个设备，</span><br><span class="line">决定不同路径对应到哪个设备的机制就叫做mount（挂载）。</span><br><span class="line">通过mount，可以设置当前的路径与设备的对应关系。</span><br><span class="line"></span><br><span class="line">每个设备会设置一个挂载点，挂载点是一个空目录。</span><br><span class="line">一般来说必须有一个设备挂载在/这个根路径下面，叫做rootfs。</span><br><span class="line">其他挂载点可以是/tmp，/boot，/dev等等，</span><br><span class="line">通过在rootfs上面创建一个空目录然后用mount命令就可以将设备挂载到这个目录上。</span><br><span class="line">挂载之后，这个目录下的子路径，就会映射到被挂载的设备里面。</span><br><span class="line">当访问一个路径时，会选择一个能最大匹配当前路径前缀的挂载点。</span><br><span class="line">比如说，有/var的挂载点，也有/var/run的挂载点的情况下，</span><br><span class="line">访问/var/run/test.pid，就会匹配到/var/run挂载点设备下面的/test.pid。</span><br><span class="line">同一个设备可以有多个挂载点，同一个挂载点同时只能加载一个设备。</span><br><span class="line">访问非挂载点的路径的时候，按照前面所说，其实是访问最接近的一个挂载点，</span><br><span class="line">如果没有其他挂载点那么就是rootfs上的目录或者文件了。</span><br></pre></td></tr></table></figure>
 
 <h4 id="7-1-8-其他Linux-support的File-System-与VFS"><a href="#7-1-8-其他Linux-support的File-System-与VFS" class="headerlink" title="7.1.8 其他Linux support的File System 与VFS"></a>7.1.8 其他Linux support的File System 与VFS</h4><p>Linux 标准 File System是ext2 和 ext3, ext4(增加了Journaling system)。但支持很多种FS.</p>
 <p>Linux 的kernel 如何管理这些认识的FS?<br>通过Virtual Filesystem Switch 的核心功能去读取filesystem </p>
@@ -698,7 +700,7 @@ FAT file system 资料存取示意图
 <h3 id="7-4-设定开机mount"><a href="#7-4-设定开机mount" class="headerlink" title="7.4 设定开机mount"></a>7.4 设定开机mount</h3><h4 id="7-4-1-开机mount-etc-fstab-及-etc-mtab"><a href="#7-4-1-开机mount-etc-fstab-及-etc-mtab" class="headerlink" title="7.4.1 开机mount  /etc/fstab 及/etc/mtab"></a>7.4.1 开机mount  /etc/fstab 及/etc/mtab</h4><p>系统mount的一些限制：<br>根目录<code>/</code>是必须mount的﹐而且一定要先于其它mount point 被mount进来。<br>其它mount point 必须是已建立的directory﹐可任意指定﹐但一定要遵守必须的系统目录架构原则(FHS)<br>所有mount point 在同一时间之内﹐只能mount一次。<br>所有partition 在同一时间之内﹐只能mount一次。<br>如若进行umount﹐您必须先将current directory移到mount point(及其子目录) 之外。</p>
 <p>开机系统mount: 在<code>/etc/fstab</code> 定义和修改<br>实际filesystem的mount是记录到/etc/mtab与/proc/mounts这两个file当中</p>
 <p>每当无法顺利开机成功，而进入单人维护模式当中，那时候的<code>/</code>是read only的状态，当然你就无法修改/etc/fstab ，也无法更新/etc/mtab ==&gt;<br><code>$ mount -n -o remount,rw /</code></p>
-<h3 id="7-5-memory-置换空间-swap-–-gt-如今一般用不到"><a href="#7-5-memory-置换空间-swap-–-gt-如今一般用不到" class="headerlink" title="7.5 memory 置换空间(swap) –&gt;如今一般用不到"></a>7.5 memory 置换空间(swap) –&gt;如今一般用不到</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RECALL(from 第三章): </span><br><span class="line"><span class="keyword">swap</span>：就是disk模拟成为memory，</span><br><span class="line">由于<span class="keyword">swap</span>并不会使用到目录树的mount，所以用<span class="keyword">swap</span>就不需要指定mount point。</span><br></pre></td></tr></table></figure>
+<h3 id="7-5-memory-置换空间-swap-–-gt-如今一般用不到"><a href="#7-5-memory-置换空间-swap-–-gt-如今一般用不到" class="headerlink" title="7.5 memory 置换空间(swap) –&gt;如今一般用不到"></a>7.5 memory 置换空间(swap) –&gt;如今一般用不到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RECALL(from 第三章): </span><br><span class="line">swap：就是disk模拟成为memory，</span><br><span class="line">由于swap并不会使用到目录树的mount，所以用swap就不需要指定mount point。</span><br></pre></td></tr></table></figure>
 <p>CPU所读取的资料都来自于memory，那当memory不足的时候，为了让后续的program可以顺利的运作，因此在memory中暂不使用的program与data就会被挪到swap中了。</p>
 <p>（因为如今一般用不太到，所以Details 跳过）</p>
 </div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
@@ -809,7 +811,7 @@ FAT file system 资料存取示意图
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -823,6 +825,10 @@ FAT file system 资料存取示意图
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="chat motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -915,6 +921,7 @@ FAT file system 资料存取示意图
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>

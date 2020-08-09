@@ -10,6 +10,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="alternate" href="/atom.xml" title="大雄的小本本 The Book Of Xin" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -30,7 +32,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -251,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css"><div class=".article-gallery" <p>现在2020年3月11号，正在家中的我，回过头来看过去的这个月，最想感叹的就是——还好这个月去成了欧洲。<br>虽然，我现在有点担心在欧洲期间以及从欧洲回来的路上自己感染了新冠肺炎。<p></p>
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>现在2020年3月11号，正在家中的我，回过头来看过去的这个月，最想感叹的就是——还好这个月去成了欧洲。<br>虽然，我现在有点担心在欧洲期间以及从欧洲回来的路上自己感染了新冠肺炎。</p>
 <p>但是现在美国疫情日益严重，尤其是西雅图。现在欧洲已经是爆发的趋势，法国西班牙已经成了仅次于意大利的重灾区。<br>专家纷纷预测疫情夏天之前不可能结束，甚至可以持续到明年春天。<br>现在大概没有人能知道，2020年，将会怎样度过。</p>
 <a id="more"></a>
 
@@ -274,7 +276,7 @@
 <li><a href="/2020/03/09/videos/vlog-爱在vlog/">Before Sunset 巴黎圣地巡礼 vlog</a> - 自我打分：8/10</li>
 </ul>
 <p>一件自己好多年来想做的一件事，终于完成了这个小心愿。很幸福。欧洲行的highlights之一。</p>
-<h2 id="Photo-of-the-Month"><a href="#Photo-of-the-Month" class="headerlink" title="Photo of the Month"></a>Photo of the Month</h2><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/photos/monthly+photo/2020-02.JPG" target="_blank" rel="noopener" class="gallery-item"><img width="750" height="500" data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/photos/monthly+photo/2020-02.JPG"></a>
+<h2 id="Photo-of-the-Month"><a href="#Photo-of-the-Month" class="headerlink" title="Photo of the Month"></a>Photo of the Month</h2><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/photos/monthly+photo/2020-02.JPG" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/photos/monthly+photo/2020-02.JPG" width = "750" height = "500"/></a>
 
 <p>在凯旋门上拍的埃菲尔铁塔。很喜欢这种感觉。只是觉得单纯的好看。</p>
 </div><script src="/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.js"></script><script>if (typeof lightGallery !== 'undefined') {
@@ -385,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -399,6 +401,10 @@
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="chat motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -491,6 +497,7 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
