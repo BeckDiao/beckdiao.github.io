@@ -258,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css" /><div class=".article-gallery"<p>鸟叔的Linux私房菜 之 第二部分 Linux 文件、目录与磁盘格式</p>
+        <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css"><div class=".article-gallery" <p>鸟叔的Linux私房菜 之 第二部分 Linux 文件、目录与磁盘格式<p></p>
 <p>Linux的一些基本概念，需要牢牢掌握、理解。</p>
 <p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php#part2" target="_blank" rel="noopener">link</a></p>
 <a id="more"></a> 
@@ -408,7 +408,7 @@
 <td>root的home dir</td>
 </tr>
 <tr>
-<td>/lib<qual></td>
+<td>/lib<qual></qual></td>
 <td>与/lib格式不同之外的函数库，如/lib64</td>
 </tr>
 </tbody></table>
@@ -482,7 +482,7 @@
 </tr>
 </tbody></table>
 <h5 id="var-的意义与内容："><a href="#var-的意义与内容：" class="headerlink" title="/var 的意义与内容："></a>/var 的意义与内容：</h5><p>如果/usr是安装时会占用较大disk容量的目录,/var就是在系统运作后才会渐渐占用disk容量的目录。<br>只要针对常态性变动型file，如cache,log等</p>
-<h4 id="5-3-2-directory-tree"><a href="#5-3-2-directory-tree" class="headerlink" title="5.3.2 directory tree"></a>5.3.2 directory tree</h4><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png"/></a>
+<h4 id="5-3-2-directory-tree"><a href="#5-3-2-directory-tree" class="headerlink" title="5.3.2 directory tree"></a>5.3.2 directory tree</h4><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/root-dir-tree.png"></a>
 root dir tree
 
 <p>注意：图中的Link不一定适用于所有distribution。</p>
@@ -529,7 +529,7 @@ root dir tree
 <ol start="3">
 <li><code>find [PATH] [option] [action]</code><br>与time有关的option:<br>有-atime, -ctime, -mtime<br>还有n, +n, -n, newer file等 (n是数字)</li>
 </ol>
-<p>find的特殊功能就是能够进行<strong>额外动作</strong><br>e.g.<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png"/></a><br>find的action sample.png</p>
+<p>find的特殊功能就是能够进行<strong>额外动作</strong><br>e.g.<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/find-extra-action-example.png"></a><br>find的action sample.png</p>
 <p>sample中特殊的地方有<code>{}</code> 以及<code>\;</code> 还有<code>-exec</code> 这个关键字，这些东西的意义为：<br><code>{}</code> 代表的是『由find 找到的内容』，如上图所示，find 的结果会被放置到{} 位置中；<br><code>-exec</code> 一直到<code>\;</code> 是关键字，代表find 额外动作的开始(-exec) 到结束(;) ，在这中间的就是find 指令内的额外动作。<br>因为<code>;</code>在bash 环境下是有特殊意义的，因此利用<code>/</code>来标识。</p>
 <hr>
 <h2 id="第7章-Linux-disk-与-file-system管理"><a href="#第7章-Linux-disk-与-file-system管理" class="headerlink" title="第7章 Linux disk 与 file system管理"></a>第7章 Linux disk 与 file system管理</h2><h3 id="7-1-认识Linux-file-system"><a href="#7-1-认识Linux-file-system" class="headerlink" title="7.1 认识Linux file system"></a>7.1 认识Linux file system</h3><ul>
@@ -550,17 +550,17 @@ root dir tree
 <p>两种存放方式：</p>
 <ol>
 <li><p>indexed allocation(inode/block)</p>
-<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png"/></a>
+<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-strcture.png"></a>
 inode/block data存取示意图
 </li>
 <li><p>FAT(用于如U盘)</p>
-<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png"/></a>
+<a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/windows-structure.png"></a>
 FAT file system 资料存取示意图
 
 </li>
 </ol>
 <p>这种如果block太过分散，disk无法转一圈读取所有资料的话，会很慢，所以过一段时间就需要 disk重组。</p>
-<h4 id="7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode"><a href="#7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode" class="headerlink" title="7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)"></a>7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)</h4><p>因为：inode 与 block数量庞大，不易管理<br>所以：block group:<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png"/></a></p>
+<h4 id="7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode"><a href="#7-1-3-Linux的EXT2-Linux-second-extended-file-system-file-system-inode" class="headerlink" title="7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)"></a>7.1.3 Linux的EXT2(Linux second extended file system) file system(inode)</h4><p>因为：inode 与 block数量庞大，不易管理<br>所以：block group:<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/ex2-file-system-block.png"></a></p>
 <p><strong>boot sector</strong>: 安装开机管理程序。file system最前端。</p>
 <ul>
 <li><p>data block:<br>基本限制：</p>
@@ -610,7 +610,7 @@ FAT file system 资料存取示意图
 </ul>
 <p><strong>– pointer</strong></p>
 <p>特性：<br>– 每个inode都是固定的128 bytes(随着File system可变)<br>– 每个file只有一个inode<br>– so, 一个File System上能够create的file 数量与inode的数量有关<br>– system在读取file时，先找到inode，分析inode所记录的permission和user是否符合，若符合再开始读取block的内容</p>
-<p>inode/block 与 file 大小关系：<br>inode 记录block 号码的区域定义为12个直接，一个间接, 一个双间接与一个三间接记录区：<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png" target="_blank" rel="noopener" class="gallery-item"><img src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png"/></a></p>
+<p>inode/block 与 file 大小关系：<br>inode 记录block 号码的区域定义为12个直接，一个间接, 一个双间接与一个三间接记录区：<br><a href="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png" target="_blank" rel="noopener" class="gallery-item"><img data-src="https://personal-bucket-prod.s3-us-west-2.amazonaws.com/books/linux/inode-block-arrangement.png"></a></p>
 <ul>
 <li><p>superblock<br>记录整个filesystem 相关info的地方<br>主要有：</p>
 </li>
@@ -811,7 +811,7 @@ FAT file system 资料存取示意图
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
